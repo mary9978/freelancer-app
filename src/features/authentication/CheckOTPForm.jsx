@@ -9,7 +9,13 @@ function CheckOTPForm() {
       value={otp}
       onChange={setOtp}
       numInputs={6}
-      containerStyle={"flex flex-row row-reverse"}
+      containerStyle={"flex flex-row-reverse gap-x-2 items-center"}
+      inputStyle={{
+        width:"2.5rem",
+        padding:"0.5rem 0.2rem",
+        border:"1px solid #ccc",
+        borderRadius:"0.5rem"
+      }}
       renderSeparator={<span>-</span>}
       renderInput={(props) => <input type={'number'} {...props} />}
     />
