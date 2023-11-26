@@ -1,7 +1,4 @@
-import React from 'react'
-
 function TextField({...arg}) {
-    console.log(arg);
   return (
     <>
     <label className={'font-vazir text-md mt-2 font-normal text-right text-secondary-400'}

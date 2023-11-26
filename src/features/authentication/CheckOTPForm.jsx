@@ -1,21 +1,52 @@
 import { useMutation } from '@tanstack/react-query';
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import OtpInput from 'react-otp-input';
 import { toast } from 'react-hot-toast';
-function CheckOTPForm({phoneNumber}) {
+import { checkOTP } from '../../services/authServices';
+import { useNavigate ,Link} from 'react-router-dom';
+function CheckOTPForm({phoneNumber,setStep}) {
   const [otp, setOtp] = useState('');
-  const {error,data,mutateAsync, isPending}= useMutation({
-
-  })
+  const navigate = useNavigate();
+  const { error, data, mutateAsync, isPending } = useMutation({
+    mutationFn: checkOTP,
+  });
   const checkOTPHandler = (e) => {
     e.preventDefault;
     try {
-      const data = mutateAsync({phoneNumber:phoneNumber,otp:'3333333'})
+      const {user, message} = mutateAsync({ phoneNumber, otp });
+      //? else => push user to panel complete profile
+      toast.success(message);
+      if (user.isActive) {
+        //? if user isActive push user to panel base on role
+      }
+      else {
+        navigate('/complete-profile')
+      }
     }
     catch (error) {
       toast.error(error?.response?.data?.message);
     }
   }
+  const [minutes, setMinutes] = useState(1);
+  const [second, setSeconds] = useState(30);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (second > 0) {
+        setSeconds(second - 1);
+      }
+       if (second === 0) {
+         if (minutes === 0) {
+           clearInterval(interval);
+         } else {
+           setSeconds(59);
+           setMinutes(minutes - 1);
+         }
+       }
+    },1000)
+    return () => {
+        clearInterval(interval);
+    }
+  }, [second]);
   return (
     <>
       <div className="mt-8">
@@ -37,6 +68,15 @@ function CheckOTPForm({phoneNumber}) {
             renderSeparator={<span>-</span>}
             renderInput={(props) => <input type={"number"} {...props} />}
           />
+          {second > 0 || minutes > 0 ? (
+            <p>
+              Time Remaining: {minutes < 10 ? `0${minutes}` : minutes}:
+              {second < 10 ? `0${second}` : second}
+            </p>
+          ) : (
+            <button onClick={setStep(1)}>ارسال دوباره کد تایید </button>
+          )}
+
           <button className="btn btn--primary w-full my-3">
             ارسال کد تایید{" "}
           </button>

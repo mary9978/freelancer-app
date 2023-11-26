@@ -14,7 +14,8 @@ function Auth() {
   }
   return (
     <div className="flex flex-col justify-center items-center h--style">
-      {renderStep()}
+      {/* {renderStep()} */}
+      <CheckOTPForm setStep={setStep} phoneNumber={phoneNumber} />
     </div>
   );
 }

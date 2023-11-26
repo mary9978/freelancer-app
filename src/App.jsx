@@ -11,6 +11,7 @@ function App() {
       <div className="container xl:max-w-screen-xl">
         <Routes>
           <Route path="/auth" element={<Auth />} />
+          <Route exact path="/complete-profile" element={<Auth />} />
         </Routes>
       </div>
     </QueryClientProvider>

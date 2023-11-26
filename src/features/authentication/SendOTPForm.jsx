@@ -38,11 +38,11 @@ function SendOTPForm({ setStep,phoneNumber, onChange }) {
           labelText={"لطفا شماره موبایل خود را وارد کنید"}
           name={phoneNumber}
           value={phoneNumber}
-          onChange={onChangeHadndler}
+          onChange={onChange}
           type={"tel"}
         />
         {isPending ? (
-          <Loading/>
+          <Loading />
         ) : (
           <button
             type="submit"
