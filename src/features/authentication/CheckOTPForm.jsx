@@ -3,7 +3,7 @@ import {useState,useEffect} from 'react'
 import OtpInput from 'react-otp-input';
 import { toast } from 'react-hot-toast';
 import { checkOTP } from '../../services/authServices';
-import { useNavigate ,Link} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 function CheckOTPForm({phoneNumber,setStep}) {
   const [otp, setOtp] = useState('');
   const navigate = useNavigate();
@@ -50,6 +50,9 @@ function CheckOTPForm({phoneNumber,setStep}) {
   return (
     <>
       <div className="mt-8">
+        <button onClick={setStep(1)}>
+          بازگشت به صفحه قبل و ویرایش شماره تماس{" "}
+        </button>
         <h2 className="font-vazir font-medium text-secondary-900 my-3">
           کد ارسال شده را وارد کنید{" "}
         </h2>
@@ -74,10 +77,10 @@ function CheckOTPForm({phoneNumber,setStep}) {
               {second < 10 ? `0${second}` : second}
             </p>
           ) : (
-            <button onClick={setStep(1)}>ارسال دوباره کد تایید </button>
+            <button onClick={checkOTPHandler}>ارسال دوباره کد تایید </button>
           )}
 
-          <button className="btn btn--primary w-full my-3">
+          <button className="btn btn--prim0ary w-full my-3">
             ارسال کد تایید{" "}
           </button>
         </form>
