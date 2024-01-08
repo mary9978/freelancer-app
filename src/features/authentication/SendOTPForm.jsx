@@ -5,15 +5,13 @@ import { getOTP } from '../../services/authServices';
 import { toast } from 'react-hot-toast';
 import Loading from '../../ui/Loading';
 function SendOTPForm({ setStep,phoneNumber, onChange }) {
-  
+  //? useQuery => for get data
+ //? useMutation => method post , delete , put , ...(send data)
 
   const { data, error, isPending, mutateAsync } = useMutation({
+    //mutationFn : ba che method mikhay send koni info haro
     mutationFn: getOTP,
   });
-
-  const onChangeHadndler = (e) => {
-    setphoneNumber(e.target.value);
-  };
   const sendOTPForm = async (e) => {
     e.preventDefault();
     try {
