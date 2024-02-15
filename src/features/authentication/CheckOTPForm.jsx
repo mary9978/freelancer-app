@@ -1,92 +1,119 @@
-import { useMutation } from '@tanstack/react-query';
-import {useState,useEffect} from 'react'
-import OtpInput from 'react-otp-input';
-import { toast } from 'react-hot-toast';
-import { checkOTP } from '../../services/authServices';
-import { useNavigate } from 'react-router-dom';
-function CheckOTPForm({phoneNumber,setStep}) {
-  const [otp, setOtp] = useState('');
+import { useMutation } from "@tanstack/react-query";
+import { useState, useEffect } from "react";
+import OtpInput from "react-otp-input";
+import { toast } from "react-hot-toast";
+import { checkOTP } from "../../services/authServices";
+import { Link, useNavigate } from "react-router-dom";
+import { CiEdit } from "react-icons/ci";
+import { HiMiniArrowSmallRight } from "react-icons/hi2";
+import Loading from "../../ui/Loading";
+function CheckOTPForm({ phoneNumber, onBack, resendOtpForm, otpResponse }) {
+  const [otp, setOtp] = useState("");
+  const [time, setTime] = useState(90);
   const navigate = useNavigate();
   const { error, data, mutateAsync, isPending } = useMutation({
     mutationFn: checkOTP,
   });
-  const checkOTPHandler = (e) => {
-    e.preventDefault;
+  const checkOTPHandler = async (e) => {
+    e.preventDefault();
+    console.log("otp");
+    console.log("phone Number");
     try {
-      const {user, message} = mutateAsync({ phoneNumber, otp });
-      //? else => push user to panel complete profile
+      const { user, message } = await mutateAsync({ phoneNumber, otp });
+      console.log("user", user);
+      console.log("message", message);
       toast.success(message);
       if (user.isActive) {
-        //? if user isActive push user to panel base on role
+        // redirect user based on role
+        navigate("/owner");
+      } else {
+        navigate("/complete-profile");
       }
-      else {
-        navigate('/complete-profile')
-      }
-    }
-    catch (error) {
+    } catch (error) {
       toast.error(error?.response?.data?.message);
     }
-  }
-  const [minutes, setMinutes] = useState(1);
-  const [second, setSeconds] = useState(30);
+  };
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (second > 0) {
-        setSeconds(second - 1);
-      }
-       if (second === 0) {
-         if (minutes === 0) {
-           clearInterval(interval);
-         } else {
-           setSeconds(59);
-           setMinutes(minutes - 1);
-         }
-       }
-    },1000)
+    const timer =
+      time > 0 &&
+      setInterval(() => {
+        setTime((t) => t - 1);
+      }, 1000);
     return () => {
-        clearInterval(interval);
-    }
-  }, [second]);
+      if (timer) clearInterval(timer);
+    };
+  }, [time]);
+
   return (
     <>
-      <div className="mt-8">
-        <button onClick={setStep(1)}>
-          بازگشت به صفحه قبل و ویرایش شماره تماس{" "}
-        </button>
-        <h2 className="font-vazir font-medium text-secondary-900 my-3">
-          کد ارسال شده را وارد کنید{" "}
-        </h2>
-        <form onSubmit={checkOTPHandler}>
-          <OtpInput
-            value={otp}
-            onChange={setOtp}
-            numInputs={6}
-            containerStyle={"flex flex-row-reverse gap-x-2 items-center"}
-            inputStyle={{
-              width: "2.5rem",
-              padding: "0.5rem 0.2rem",
-              border: "1px solid #ccc",
-              borderRadius: "0.5rem",
-            }}
-            renderSeparator={<span>-</span>}
-            renderInput={(props) => <input type={"number"} {...props} />}
-          />
-          {second > 0 || minutes > 0 ? (
-            <p>
-              Time Remaining: {minutes < 10 ? `0${minutes}` : minutes}:
-              {second < 10 ? `0${second}` : second}
-            </p>
-          ) : (
-            <button onClick={checkOTPHandler}>ارسال دوباره کد تایید </button>
+      <section className=" dark:bg-gray-900">
+        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+          <div className="flex flex-row-reverse items-center justify-center">
+            <h2 className="text-2xl font-PlusJakartaSans font-bold text-secondary-900 ms-8">
+              کارا - کاریابی آنلاین
+            </h2>
+            <div className="w-8 h-8 border border-gray-300 rounded-xl hover:bg-gray-100 hover:cursor-pointer">
+              <HiMiniArrowSmallRight
+                onClick={onBack}
+                size={30}
+                className={"hover:text-primary-200"}
+              />
+            </div>
+          </div>
+          {otpResponse && (
+            <div className="flex flex-row items-center justify-center mt-6">
+              <h6 className="font-vazir text-normal text-secondary-400">
+                کد تایید برای شماره موبایل {phoneNumber} ارسال گردید
+              </h6>
+              <CiEdit
+                onClick={onBack}
+                size={20}
+                className={"ms-2 hover:cursor-pointer hover:text-primary-400"}
+              />
+            </div>
           )}
 
-          <button className="btn btn--prim0ary w-full my-3">
-            ارسال کد تایید{" "}
-          </button>
-        </form>
-      </div>
+          <form className="my-12" onSubmit={checkOTPHandler}>
+            <h2 className="font-vazir font-medium text-secondary-900 my-3">
+              کد تایید را وارد کنید
+            </h2>
+            <OtpInput
+              value={otp}
+              onChange={setOtp}
+              numInputs={6}
+              containerStyle={"flex flex-row-reverse gap-x-2 items-center my-8"}
+              inputStyle={{
+                width: "2.5rem",
+                padding: "0.5rem 0.2rem",
+                border: "1px solid #ccc",
+                borderRadius: "0.5rem",
+              }}
+              renderSeparator={<span>-</span>}
+              renderInput={(props) => <input type={"number"} {...props} />}
+            />
+            <div className="font-vazir text-normal text-secondary-600">
+              {time > 0 ? (
+                `ارسال مجدد  کد تا ${time} ثانیه دیگر`
+              ) : (
+                <button onClick={resendOtpForm}>دریافت مجدد کد</button>
+              )}
+            </div>
+            {isPending ? (
+              <Loading />
+            ) : (
+              <button
+                type="submit"
+                id="btn-resend"
+                className="btn btn--primary  w-full my-8 disabled:bg-pink-500"
+              >
+                ارسال کد تایید{" "}
+              </button>
+            )}
+          </form>
+        </div>
+      </section>
     </>
   );
 }
 
-export default CheckOTPForm
+export default CheckOTPForm;
