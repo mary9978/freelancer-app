@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
+import CompleteProfile from './pages/CompleteProfile';
 import './App.css'
 import Auth from './pages/Auth'
 import { Route,Routes } from 'react-router-dom'
@@ -12,7 +12,7 @@ function App() {
       <div className="container xl:max-w-screen-xl">
         <Routes>
           <Route path="/auth" element={<Auth />} />
-          <Route exact path="/complete-profile" element={<h2>Complete Profile </h2>} />
+          <Route exact path="/complete-profile" element={<CompleteProfile/>} />
         </Routes>
       </div>
      </QueryClientProvider>

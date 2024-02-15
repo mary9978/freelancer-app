@@ -17,7 +17,8 @@ export default {
   ],
   theme: {
     fontFamily:{
-      "vazir":["vazir",...fontFamily.sans]
+      "vazir":["vazir",...fontFamily.sans],
+      "PlusJakartaSans":["PlusJakartaSans",...fontFamily.sans]
     },
   
     extend: {
@@ -56,6 +57,8 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
 
