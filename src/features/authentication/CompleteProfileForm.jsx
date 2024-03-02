@@ -14,7 +14,23 @@ function CompleteProfileForm() {
   const completeFormHandler = async (e) => {
     e.preventDefault();
     try {
-      const {message}= await mutateAsync({name,email,role});
+      const {user,message}= await mutateAsync({name,email,role});
+      if(user.status !== 2){
+        navigate("/");
+        toast("پروفایل شما در انتظار تایید است",{icon:'👏'});
+        return;
+      }
+      switch(user.role){
+        case "OWNER":{
+          navigate('/owner');
+          break;
+        }
+        case "FREELANCER":{
+          navigate('/freelancer');
+          break;
+        }
+        default: return;
+      }
       toast.success(message);
     } catch (error) {
       toast.error(error?.response?.data?.message)

@@ -55,6 +55,9 @@ export default {
         warning: withOpacity("--color-warning"),
         error: withOpacity("--color-error"),
       },
+      backgroundImage:{
+        'bg-four-o-four':'url("https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif")'
+      }
     },
   },
   plugins: [
