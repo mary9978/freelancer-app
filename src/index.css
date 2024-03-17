@@ -41,7 +41,10 @@
     @apply px-3 py-1 font-bold rounded-3xl transition-all duration-300;
   }
   .btn--primary {
-    @apply px-4 py-3 bg-primary-900 text-white hover:bg-primary-800 shadow-lg shadow-primary-300 dark:shadow-secondary-200;
+    @apply  bg-primary-900 text-white hover:bg-primary-800 shadow-lg shadow-primary-300 dark:shadow-secondary-200;
+  }
+  .btn-danger{
+    @apply border-2 border-red-500 hover:text-white shadow-lg hover:bg-red-500;
   }
   .btn--secondary {
     @apply bg-secondary-600 text-secondary-100;
