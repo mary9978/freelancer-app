@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Vazirmatn:wght@400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Vazirmatn:wght@400;700;900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @layer base {
-   :root{
+  :root {
     --background-app-rgb: 255, 255, 255;
     --color-primary-900: 74, 109, 255;
     --color-primary-800: 92, 124, 255;
@@ -31,33 +31,66 @@
     --color-error: 255, 71, 87;
     --color-red-500: 239, 68, 68;
     --color-red-300: 252, 165, 165;
-   }
+  }
 }
-@layer components{
-  .textField__input{
+@layer components {
+  .textField__input {
     @apply w-full py-3 px-4 rounded-xl text-secondary-900 border border-secondary-100 bg-secondary-100 hover:border-primary-500 focus:border-primary-500 focus:bg-secondary-0 transition-all duration-300 ease-out focus:shadow-lg focus:shadow-primary-200 dark:focus:shadow-secondary-200 text-right;
   }
   .btn {
     @apply px-3 py-1 font-bold rounded-3xl transition-all duration-300;
   }
   .btn--primary {
-    @apply px-4 py-3 bg-primary-900 text-white hover:bg-primary-800 shadow-lg shadow-primary-300 dark:shadow-secondary-200;
+    @apply  bg-primary-900 text-white hover:bg-primary-800 shadow-lg shadow-primary-300 dark:shadow-secondary-200;
+  }
+  .btn-danger{
+    @apply border-2 border-red-500 hover:text-white shadow-lg hover:bg-red-500;
   }
   .btn--secondary {
     @apply bg-secondary-600 text-secondary-100;
   }
+  .badge-success {
+    @apply bg-green-700 text-white p-1 rounded-xl;
+  }
+  .badge-danger {
+    @apply bg-red-600 text-white p-1 rounded-xl;
+  }
+  .badge--primary {
+    @apply bg-primary-900 text-white  p-1 rounded-xl;
+  }
+  .badge--secondary {
+    @apply bg-secondary-200 text-secondary-600  p-1 rounded-xl;
+  }
 }
-/* :root{
-  --primary-900: #ccc;
-} */
-body{
+
+body {
   font-family: "vazir";
   background: rgb(var(--background-app-rgb));
 }
-label{
+label {
   display: block;
 }
-.h--style{
+.h--style {
   min-height: 100vh;
   overflow-y: hidden;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+table .title-row {
+  background-color: rgb(var(--color-secondary-100));
+}
+table td,
+table th {
+  border-bottom: 1px solid rgb(var(--color-secondary-200));
+  text-align: right;
+  white-space: nowrap;
+}
+table td {
+  font-size: 1rem;
+  padding: 1rem;
+  color: rgb(var(--color-secondary-600));
+  font-family: PlusJakartaSans;
 }
