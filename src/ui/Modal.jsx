@@ -1,19 +1,9 @@
-import React, { useRef } from 'react'
-import { useEffect } from 'react';
+import React from 'react'
 import { IoMdClose } from 'react-icons/io'
+import useOutSideClick from '../hooks/useOutSideClick';
 function Modal({isOpen,onClose,title,children}) {
-   const modalRef = useRef();
-   useEffect(()=>{
-     function handleOutsideClick(e){
-      if(modalRef.current && !modalRef.current.contains(e.target) ){
-         onClose();
-      }
-    }
-     document.addEventListener('click',handleOutsideClick,true);
-     return ()=>{
-      document.removeEventListener('click',handleOutsideClick,true);
-     }
-   },[onClose])
+  const modalRef = useOutSideClick(onClose);
+ 
   return (
     isOpen && 
     <div className='backdrop-blur-sm fixed left-0 top-0 z-50
