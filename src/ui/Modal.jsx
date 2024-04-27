@@ -2,7 +2,8 @@ import React from 'react'
 import { IoMdClose } from 'react-icons/io'
 function Modal({isOpen,onClose,title,children}) {
   return (
-    isOpen && <div className='backdrop-blur-sm fixed left-0 top-0 z-50
+    isOpen && 
+    <div className='backdrop-blur-sm fixed left-0 top-0 z-50
      w-full h-screen bg-secondary-800 bg-opacity-30' >
         <div className='fixed left-1/2 top-1/2  -translate-x-1/2 -translate-y-1/2
         rounded-lg bg-secondary-0 shadow-lg transition-all duration-500 ease-out
