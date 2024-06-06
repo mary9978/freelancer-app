@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoMdAdd } from "react-icons/io";
 import ProjectRow from "./ProjectRow";
 import Table from "../../ui/Table";
+import Modal from "../../ui/Modal";
+import CreateProjectForm from "./CreateProjectForm";
 
 function ProjectTable() {
-  //  const { project, isLoading } = useOwnerProjects();
-  // console.log(project);
+  const [createPro,setCreatePro] = useState(false);
   const project = [
     {
       _id: 1,
@@ -46,10 +47,20 @@ function ProjectTable() {
         <h2 className="text-2xl font-PlusJakartaSans font-extrabold">
           پروژه های شما
         </h2>
-        <button className="btn btn--primary rounded-lg flex items-center">
+        <button 
+        onClick={()=> setCreatePro(true)}
+        className="btn btn--primary rounded-lg flex items-center">
           <IoMdAdd />
           ایجاد پروژه جدید
         </button>
+        {/* create project moadal */}
+        <Modal 
+         isOpen={createPro}
+         onClose={()=>setCreatePro(false)}
+         title={'ایجاد پروژه جدید'}
+         >
+          <CreateProjectForm onClose={()=>setCreatePro(false)}/>
+         </Modal>
       </div>
 
       <Table>

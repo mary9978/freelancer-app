@@ -1,7 +1,7 @@
 import TextField from "../../ui/TextField";
 import Loading from "../../ui/Loading";
 import { MdArrowBack } from "react-icons/md";
-function SendOTPForm({ onSendOtpForm, isSending, phoneNumber, onChange  }) {
+function SendOTPForm({ onSendOtpForm, isSending,register,errors }) {
   return (
     <>
       <div className="flex flex-col md:flex-row px-6 py-8  justify-center items-center mx-auto md:h-screen">
@@ -12,10 +12,17 @@ function SendOTPForm({ onSendOtpForm, isSending, phoneNumber, onChange  }) {
           <form onSubmit={onSendOtpForm}>
             <TextField
               labelText={"لطفا شماره موبایل خود را وارد کنید"}
-              name={phoneNumber}
-              value={phoneNumber}
-              onChange={onChange}
+              name={'phoneNumber'}
+              register={register}
               type={"tel"}
+              errors={errors}
+              required={"true"}
+              validationSchema={{
+                required: {
+                  value: true,
+                  message: "شماره موبایل ضرروری می باشد",
+                }
+              }}
             />
             {isSending ? (
               <Loading />
