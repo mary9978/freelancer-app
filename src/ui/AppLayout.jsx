@@ -3,51 +3,53 @@ import { Outlet } from "react-router-dom";
 
 import { GoHomeFill } from "react-icons/go";
 import { AiFillProject } from "react-icons/ai";
-
+import { FaRegListAlt } from "react-icons/fa";
 import { IoCreate } from "react-icons/io5";
-
+import { IoLogOutOutline } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import Accordion from "./Accordion";
 import Header from "./Header";
 import SideBar from "./SideBar";
+import { MdOutlineLibraryAdd } from "react-icons/md";
+import { TiHome } from "react-icons/ti";
 function AppLayout() {
   const [accordion, setAccordion] = useState([
     {
       key: 1,
-      icon: <GoHomeFill />,
+      icon: <TiHome />,
       title: "داشبورد",
       link:'/owner',
-      data: ``,
+      submenu:[],
       isOpen: false,
     },
     {
       key: 2,
-      icon: <AiFillProject/> ,
+      icon: <FaRegListAlt/> ,
       link:'/owner/projects',
       title: "لیست پروژه ها",
-      data: "",
+      submenu:[],
       isOpen: false,
     },
     {
         key: 3,
-        icon:<IoCreate/>,
+        icon:<MdOutlineLibraryAdd/>,
         title:'ایجاد پروژه جدید',
         link:'',
-        data:'',
+        submenu:[],
         isOpen:'false'
     },
     {
         key: 4,
-        icon: <FaUser/>,
-        title: 'اطلاعات کاربری',
+        icon: <IoLogOutOutline/>,
+        title: 'خروج از حساب کاربری',
         link:'',
-        data:'',
+        submenu:[],
         isOpen: false
     }
   ]);
   const toggleAccordion = (accordionkey) => {
     const updatedAccordions = accordion.map((accord) => {
-      if (accord.key === accordionkey) {
+      if (accord.key === accordionkey && accordion.submenu.length !== 0) {
         return { ...accord, isOpen: !accord.isOpen };
       } else {
         return { ...accord, isOpen: false };
@@ -61,8 +63,6 @@ function AppLayout() {
      <Header/>
 
     <SideBar accordion = {accordion} toggleAccordion={toggleAccordion}/>
-
-
       <div className="overflow-y-auto">
         <div className="mx-auto max-w-screen-lg mt-4">
           <Outlet />
