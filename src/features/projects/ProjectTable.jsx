@@ -4,43 +4,46 @@ import ProjectRow from "./ProjectRow";
 import Table from "../../ui/Table";
 import Modal from "../../ui/Modal";
 import CreateProjectForm from "./CreateProjectForm";
+import useOwnerProjects from "./useOwnerProjects";
+import Loading from "../../ui/Loading";
 
 function ProjectTable() {
   const [createPro,setCreatePro] = useState(false);
-  const project = [
-    {
-      _id: 1,
-      title: "برنامه نویس ارشد ری اکت",
-      category: "برنامه نویسی",
-      budget: 203000,
-      deadline: "2023-03-16T10:53:30.392Z",
-      tags: ["سئو", "طراحی سایت"],
-      freelancer: "مریم رضایی",
-      status: "OPEN",
-    },
-    {
-      _id: 1,
-      title: "برنامه نویس ارشد ری اکت",
-      category: "برنامه نویسی",
-      budget: 2000000,
-      deadline: "2024-03-16T10:53:30.392Z",
-      tags: ["سئو", "طراحی سایت"],
-      freelancer: "مریم رضایی",
-      status: "OPEN",
-    },
-    {
-      _id: 1,
-      title: "برنامه نویس ارشد ری اکت",
-      category: "برنامه نویسی",
-      budget: 103000000,
-      deadline: "2024-03-16T10:53:30.392Z",
-      tags: ["سئو", "طراحی سایت"],
-      freelancer: "مریم رضایی",
-      status: "Close",
-    },
-  ];
-  //  if (isLoading) return <Loading />;
-  if (!project) return <h2>پروژه ای یافت نشد</h2>;
+  const {isLoading,projects} = useOwnerProjects();
+  // const project = [
+  //   {
+  //     _id: 1,
+  //     title: "برنامه نویس ارشد ری اکت",
+  //     category: "برنامه نویسی",
+  //     budget: 203000,
+  //     deadline: "2023-03-16T10:53:30.392Z",
+  //     tags: ["سئو", "طراحی سایت"],
+  //     freelancer: "مریم رضایی",
+  //     status: "OPEN",
+  //   },
+  //   {
+  //     _id: 1,
+  //     title: "برنامه نویس ارشد ری اکت",
+  //     category: "برنامه نویسی",
+  //     budget: 2000000,
+  //     deadline: "2024-03-16T10:53:30.392Z",
+  //     tags: ["سئو", "طراحی سایت"],
+  //     freelancer: "مریم رضایی",
+  //     status: "OPEN",
+  //   },
+  //   {
+  //     _id: 1,
+  //     title: "برنامه نویس ارشد ری اکت",
+  //     category: "برنامه نویسی",
+  //     budget: 103000000,
+  //     deadline: "2024-03-16T10:53:30.392Z",
+  //     tags: ["سئو", "طراحی سایت"],
+  //     freelancer: "مریم رضایی",
+  //     status: "Close",
+  //   },
+  // ];
+   if (isLoading) return <Loading />;
+  if (!projects) return <h2>پروژه ای یافت نشد</h2>;
   return (
     <div className="">
       <div className="flex justify-between">
@@ -94,7 +97,7 @@ function ProjectTable() {
           </th>
         </Table.Header>
         <Table.Body>
-          {project.map((pr, index) => {
+          {projects.map((pr, index) => {
             return <ProjectRow key={index} index={index} pr={pr} />;
           })}
         </Table.Body>
