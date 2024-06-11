@@ -1,7 +1,6 @@
 import React from "react";
 
 function RHFSelect({label,name,register,options}) {
-  console.log(options);
   return (
     <div >
       <label htmlFor={name}>{label}</label>

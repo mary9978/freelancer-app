@@ -25,7 +25,6 @@ function CreateProjectForm({onClose,projectToEdit={}}) {
       category: category._id,
       budget
     }
-    console.log('edit value',editValue);
   }
   const {
     register,

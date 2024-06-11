@@ -95,6 +95,9 @@ function ProjectTable() {
           <th scope="col" className="p-4">
             عملیات
           </th>
+          <th scope="col" className="p-4">
+            درخواست ها
+          </th>
         </Table.Header>
         <Table.Body>
           {projects.map((pr, index) => {
