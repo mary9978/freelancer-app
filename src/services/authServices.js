@@ -1,5 +1,6 @@
 import http from "./httpServices"
 export function getOTP(data) {
+  console.log(data)
     return http.post("/user/get-otp",data).then(({data})=> data.data)
 }
 export function checkOTP(data) {

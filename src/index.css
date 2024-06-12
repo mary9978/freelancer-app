@@ -53,7 +53,7 @@
 }
 @layer components {
   .textField__input {
-    @apply w-full py-3 px-4 rounded-xl text-secondary-900 border border-secondary-100 bg-secondary-100 hover:border-primary-500 focus:border-primary-500 focus:bg-secondary-0 transition-all duration-300 ease-out focus:shadow-lg focus:shadow-primary-200 dark:focus:shadow-secondary-200 text-right;
+    @apply w-full py-3 px-4 rounded-xl text-secondary-900 border border-secondary-100 bg-secondary-500 hover:border-primary-500 focus:border-primary-500 focus:bg-secondary-200 transition-all duration-300 ease-out focus:shadow-lg focus:shadow-primary-200 dark:focus:shadow-secondary-200 text-right;
   }
   .btn {
     @apply px-3 py-1 font-bold rounded-3xl transition-all duration-300;
@@ -78,6 +78,28 @@
   }
   .badge--secondary {
     @apply bg-secondary-200 text-secondary-600  p-1 rounded-xl;
+  }
+
+
+
+
+  .link{
+    @apply hidden lg:flex justify-end font-PlusJakartaSans font-normal text-sm text-gray-500;
+  }
+  .btn{
+    @apply w-full my-4 py-2 bg-blue-600 rounded-md text-white shadow-xl hover:bg-white hover:text-blue-500 hover:ring-1 hover:ring-blue-500 cursor-pointer transition-all duration-300 font-PlusJakartaSans font-bold;
+  }
+  .input{
+    @apply w-full text-sm shadow-none focus:shadow-none border-none outline-none focus:outline-none   focus:ring-0 focus:border-none form-input  text-gray-400 rounded-lg  bg-white;
+  }
+  .error{
+    @apply inline-block w-2/4 text-left text-xs text-red-400 font-PlusJakartaSans font-normal ms-1 mt-1;
+  }
+  .container-style{
+    @apply   bg-secondary-0 flex items-center justify-center h-screen;
+  }
+  .form-grid{
+    @apply grid grid-cols-1 lg:grid-cols-2 bg-gray-200 rounded-xl p-2;
   }
 }
 
