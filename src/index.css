@@ -4,44 +4,65 @@
 @tailwind utilities;
 @layer base {
   :root {
-    --background-app-rgb: 255, 255, 255;
-    --color-primary-900: 74, 109, 255;
-    --color-primary-800: 92, 124, 255;
-    --color-primary-700: 110, 138, 255;
-    --color-primary-600: 128, 153, 255;
-    --color-primary-500: 146, 167, 255;
-    --color-primary-400: 164, 182, 255;
-    --color-primary-300: 183, 197, 255;
-    --color-primary-200: 201, 211, 255;
-    --color-primary-100: 219, 226, 255;
-    --color-primary-50: 228, 233, 255;
-    --color-secondary-900: 17, 24, 39;
-    --color-secondary-800: 31, 41, 55;
-    --color-secondary-700: 55, 65, 81;
-    --color-secondary-600: 75, 85, 99;
-    --color-secondary-500: 107, 114, 128;
-    --color-secondary-400: 156, 163, 175;
-    --color-secondary-300: 209, 213, 219;
-    --color-secondary-200: 229, 231, 235;
-    --color-secondary-100: 243, 244, 246;
-    --color-secondary-50: 249, 250, 251;
-    --color-secondary-0: 255, 255, 255;
-    --color-success: 0, 192, 115;
-    --color-warning: 255, 153, 0;
-    --color-error: 255, 71, 87;
-    --color-red-500: 239, 68, 68;
-    --color-red-300: 252, 165, 165;
+    &,
+    &.light-mode {
+      --background-app-rgb: 255, 255, 255;
+      --color-primary-900: 74, 109, 255;
+      --color-primary-800: 92, 124, 255;
+      --color-primary-700: 110, 138, 255;
+      --color-primary-600: 128, 153, 255;
+      --color-primary-500: 146, 167, 255;
+      --color-primary-400: 164, 182, 255;
+      --color-primary-300: 183, 197, 255;
+      --color-primary-200: 201, 211, 255;
+      --color-primary-100: 219, 226, 255;
+      --color-primary-50: 228, 233, 255;
+      --color-secondary-900: 17, 24, 39;
+      --color-secondary-800: 31, 41, 55;
+      --color-secondary-700: 55, 65, 81;
+      --color-secondary-600: 75, 85, 99;
+      --color-secondary-500: 107, 114, 128;
+      --color-secondary-400: 156, 163, 175;
+      --color-secondary-300: 209, 213, 219;
+      --color-secondary-200: 229, 231, 235;
+      --color-secondary-100: 243, 244, 246;
+      --color-secondary-50: 249, 250, 251;
+      --color-secondary-0: 255, 255, 255;
+      --color-success: 0, 192, 115;
+      --color-warning: 255, 153, 0;
+      --color-error: 255, 71, 87;
+      --color-red-500: 239, 68, 68;
+      --color-red-300: 252, 165, 165;
+    }
+    &.dark-mode {
+      --color-secondary-900: 249, 250, 251;
+      --color-secondary-800: 243, 244, 246;
+      --color-secondary-700: 229, 231, 235;
+      --color-secondary-600: 209, 213, 219;
+      --color-secondary-500: 156, 163, 175;
+      --color-secondary-400: 107, 114, 128;
+      --color-secondary-300: 75, 85, 99;
+      --color-secondary-200: 55, 65, 81;
+      --color-secondary-100: 31, 41, 55;
+      --color-secondary-50: 17, 24, 39;
+      --color-secondary-0: 24, 33, 47;
+      --backdrop-color: 0, 0, 0;
+    }
+    
   }
 }
 @layer components {
   .textField__input {
-    @apply w-full py-3 px-4 rounded-xl text-secondary-900 border border-secondary-100 bg-secondary-100 hover:border-primary-500 focus:border-primary-500 focus:bg-secondary-0 transition-all duration-300 ease-out focus:shadow-lg focus:shadow-primary-200 dark:focus:shadow-secondary-200 text-right;
+    @apply w-full py-3 px-4 rounded-xl text-secondary-900 border border-secondary-100 bg-secondary-500 hover:border-primary-500 focus:border-primary-500 focus:bg-secondary-200 transition-all duration-300 ease-out focus:shadow-lg focus:shadow-primary-200 dark:focus:shadow-secondary-200 text-right;
+  }
+  .dropDown__item{
+    @apply hover:cursor-pointer hover:bg-gray-300 p-1 hover:rounded-lg ease-in-out duration-300;
   }
   .btn {
     @apply px-3 py-1 font-bold rounded-3xl transition-all duration-300;
   }
   .btn--primary {
-    @apply  bg-primary-900 text-white hover:bg-primary-800 shadow-lg shadow-primary-300 dark:shadow-secondary-200;
+    @apply  bg-primary-900 text-white hover:bg-primary-800 shadow-lg shadow-primary-300 py-2 font-PlusJakartaSans text-base lg:text-lg dark:shadow-secondary-200;
   }
   .btn-danger{
     @apply border-2 border-red-500 hover:text-white shadow-lg hover:bg-red-500;
@@ -60,6 +81,28 @@
   }
   .badge--secondary {
     @apply bg-secondary-200 text-secondary-600  p-1 rounded-xl;
+  }
+
+
+
+
+  .link{
+    @apply hidden lg:flex justify-end font-PlusJakartaSans font-normal text-sm text-gray-500;
+  }
+  .btn{
+    @apply w-full my-4 py-2 bg-blue-600 rounded-md text-white shadow-xl hover:bg-white hover:text-blue-500 hover:ring-1 hover:ring-blue-500 cursor-pointer transition-all duration-300 font-PlusJakartaSans font-bold;
+  }
+  .input{
+    @apply w-full text-sm shadow-none focus:shadow-none border-none outline-none focus:outline-none   focus:ring-0 focus:border-none form-input  text-gray-400 rounded-lg  bg-white;
+  }
+  .error{
+    @apply inline-block w-2/4 text-left text-xs text-red-400 font-PlusJakartaSans font-normal ms-1 mt-1;
+  }
+  .container-style{
+    @apply   bg-secondary-0 flex items-center justify-center h-screen;
+  }
+  .form-grid{
+    @apply grid grid-cols-1 lg:grid-cols-2 bg-gray-200 rounded-xl p-2;
   }
 }
 

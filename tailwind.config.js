@@ -57,7 +57,22 @@ export default {
       },
       backgroundImage:{
         'bg-four-o-four':'url("https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif")'
-      }
+      },
+      keyframes:{
+        Move:{
+          '0%': { transform: 'rotate(0.0deg)' },
+          '10%': { transform: 'rotate(14deg)' },
+          '20%': { transform: 'rotate(30deg)' },
+          '30%': { transform: 'rotate(45deg)' },
+          '40%': { transform: 'rotate(60deg)' },
+          '50%': { transform: 'rotate(110deg)' },
+          '60%': { transform: 'rotate(160deg)' },
+          '100%': { transform: 'rotate(180eg)' },
+        }
+      },
+      animation: {
+        'waving-hand': 'Move 2s linear infinite',
+      },
     },
   },
   plugins: [

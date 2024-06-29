@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createProjectApi } from "../../services/projectServices";
-
+import toast from "react-hot-toast";
 export default function useCreateProject() {
     const queryClient = useQueryClient();
     //we post data using mutate fn

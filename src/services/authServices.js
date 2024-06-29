@@ -1,5 +1,6 @@
 import http from "./httpServices"
 export function getOTP(data) {
+  console.log(data)
     return http.post("/user/get-otp",data).then(({data})=> data.data)
 }
 export function checkOTP(data) {
@@ -11,4 +12,7 @@ export function completeProfile(data){
 
 export function getUser(){
   return http.get('/user/profile').then(({data}) => data.data)
+}
+export function logoutApi(){
+  return http.post('/user/logout').then(({data}) => data.data)
 }

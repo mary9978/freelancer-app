@@ -1,0 +1,32 @@
+:root{
+    --background-app-rgb: #fff;
+      --color-primary-900: #4A6DFF;
+      --color-primary-800: #5C7CFF;
+      --color-primary-700: #6E8AFF;
+      --color-primary-600: #8099FF;
+      --color-primary-500: #92A7FF;
+      --color-primary-400: #A4B6FF;
+      --color-primary-300: #B7C5FF;
+      --color-primary-200: #C9D3FF;
+      --color-primary-100: #DBE2FF;
+      --color-primary-50: #E4E9FF;
+
+
+      --color-secondary-900: #111827;
+      --color-secondary-800: #1F2937;
+      --color-secondary-700: #374151;
+      --color-secondary-600: #4B5563;
+      --color-secondary-500: #6B7280;
+      --color-secondary-400: #9CA3AF;
+      --color-secondary-300: #D1D5DB;
+      --color-secondary-200: #E5E7EB;
+      --color-secondary-100: #F3F4F6;
+      --color-secondary-50: #F9FAFB;
+      --color-secondary-0: #fff;
+
+      --color-success: #00C073;
+      --color-warning: #FF9900;
+      --color-error: #FF4757;
+      --color-red-500: #EF4444;
+      --color-red-300: #FCA5A5;
+}

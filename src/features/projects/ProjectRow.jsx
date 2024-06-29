@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HiOutlineTrash, HiOutlinePencilAlt } from "react-icons/hi";
+import { HiOutlineTrash, HiOutlinePencilAlt ,HiOutlineEye} from "react-icons/hi";
 import convertText from "../../utils/convertText";
 import toLocalDate from "../../utils/toLocalDate";
 import convertToPersianNumber from "../../utils/convertPrice";
@@ -7,6 +7,9 @@ import ConfirmDelete from "../../ui/ConfirmDelete";
 import Table from "../../ui/Table";
 import Modal from "../../ui/Modal";
 import useRemoveProject from "./useRemoveProject";
+import CreateProjectForm from "./CreateProjectForm";
+import ToggleProjectStatus from "./ToggleProjectStatus";
+import { Link } from "react-router-dom";
 
 function ProjectRow({ pr, index }) {
   const [isEdit, setIsEdit] = useState(false);
@@ -30,11 +33,7 @@ function ProjectRow({ pr, index }) {
       </td>
       <td>{pr.freelancer?.name || "-"}</td>
       <td>
-        {pr.status === "OPEN" ? (
-          <span className="badge-success">باز</span>
-        ) : (
-          <span className="badge-danger">بسته</span>
-        )}
+        <ToggleProjectStatus project={pr} />
       </td>
       <td>
         <div className="flex gap-x-2">
@@ -58,9 +57,16 @@ function ProjectRow({ pr, index }) {
             className="w-5 h-5 bg-secondary-50 hover:cursor-pointer"
           />
           <Modal isOpen={isEdit} onClose={() => setIsEdit(false)} title={`ویرایش ${pr.title}`}>
-            this is modal
+             <CreateProjectForm 
+             projectToEdit={pr}
+              onClose={()=> setIsEdit(false)}/>
           </Modal>
         </div>
+      </td>
+      <td>
+        <Link className="flex justify-center" to={`${pr._id}`}>
+          <HiOutlineEye className="w-5 h-5"/>
+        </Link>
       </td>
     </Table.Row>
   );
