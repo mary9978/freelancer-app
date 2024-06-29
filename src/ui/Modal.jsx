@@ -3,7 +3,6 @@ import { IoMdClose } from 'react-icons/io'
 import useOutSideClick from '../hooks/useOutSideClick';
 function Modal({isOpen,onClose,title,children}) {
   const modalRef = useOutSideClick(onClose);
- 
   return (
     isOpen && 
     <div className='backdrop-blur-sm fixed left-0 top-0 z-50

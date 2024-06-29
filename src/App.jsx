@@ -37,7 +37,7 @@ function App() {
             <Route path="projects" element={<SubmittedProjects />} />
           </Route>
 
-          <Route path="/" element={<h2>Home page</h2>} />
+          <Route path="/" element={<Navigate to={"/auth"}/>} replace/>
           <Route path="/auth" element={<Auth />} />
           <Route exact path="/complete-profile" element={<CompleteProfile />} />
           <Route path="*" element={<NotFound />} />

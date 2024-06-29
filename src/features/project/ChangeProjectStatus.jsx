@@ -3,6 +3,7 @@ import RHFSelect from "../../ui/RHFSelect";
 import { useForm } from "react-hook-form";
 import useProposalStatus from "./useProposalStatus";
 import { useQueryClient } from "@tanstack/react-query";
+import { useParams } from "react-router-dom";
 function ChangeProjectStatus({ proposalId, onClose }) {
   const options = [
     {

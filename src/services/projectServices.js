@@ -3,13 +3,9 @@ import http from "./httpServices";
 export function getOwnerProjectsApi() {
     return http.get('/project/owner-projects').then(({data}) => data.data);
 }
-
-// export function getProjectApi (id){
-//     console.log(id);
-//     http.get(`/project/${id}`,data).then(({data}) => console.log('aaaa',data.data));
-// }
-
-
+export function getProjectListApi() {
+    return http.get('/project/list').then(({data}) => data.data);
+}
 
 export function removeProjectApi(id) {
     return http.delete(`/project/${id}`).then(({data}) => data.data);

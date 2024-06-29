@@ -53,17 +53,17 @@ function CheckOTPForm({ phoneNumber, onBack, resendOtpForm, otpResponse }) {
 
   return (
     <>
-      <section className=" dark:bg-gray-900">
+      <section className="bg-secondary-0">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <div className="flex flex-row-reverse items-center justify-center">
+          <div className="flex flex-row-reverse">
             <h2 className="text-2xl font-PlusJakartaSans font-bold text-secondary-900 ms-8">
-              کارا - کاریابی آنلاین
+               مای ورک
             </h2>
-            <div className="w-8 h-8 border border-gray-300 rounded-xl hover:bg-gray-100 hover:cursor-pointer">
+            <div className="w-8 h-8 border flex justify-center items-center bg-secondary-300 border-gray-300 rounded-xl hover:bg-secondary-400 hover:cursor-pointer">
               <HiMiniArrowSmallRight
                 onClick={onBack}
                 size={30}
-                className={"hover:text-primary-200"}
+                className={"text-secondary-500 hover:text-primary-200"}
               />
             </div>
           </div>

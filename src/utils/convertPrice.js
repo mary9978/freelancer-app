@@ -3,7 +3,7 @@ export default function convertToPersianNumber(price) {
     return persianNumber(numberWithComma);
 }
 function persianNumber(number) {
-    const farsiDigit = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+    const farsiDigit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
    return number.toString().replace(/\d/g, x => farsiDigit[x]);
 }
 function numberWithCommas(number) {

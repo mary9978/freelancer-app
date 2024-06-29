@@ -3,7 +3,6 @@ import Table from '../../ui/Table'
 import ProposalRow from './ProposalRow'
 
 function ProposalTable({project}) {
-    console.log(project);
   if(!project.proposals.length) return <p>درخواستی برای این پروژه موجود نمی باشد</p>
   return (
     <Table>

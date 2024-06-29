@@ -1,14 +1,15 @@
 import React from 'react'
 import DashboardHeader from './DashboardHeader'
 import Stats from './Stats'
-
+import useProposals from '../Proposals/useProposals';
+import Loading from '../../ui/Loading';
 function DashboardLayout() {
+  const { proposals,isLoading} = useProposals();
+  if(isLoading) return <Loading/>
   return (
     <div>
-        {/* dashboard header
-        dashboard stats */}
         <DashboardHeader/>
-        <Stats/>
+        <Stats proposals={proposals}/>
     </div>
   )
 }
