@@ -3,8 +3,8 @@ import http from "./httpServices";
 export function getOwnerProjectsApi() {
     return http.get('/project/owner-projects').then(({data}) => data.data);
 }
-export function getProjectListApi() {
-    return http.get('/project/list').then(({data}) => data.data);
+export function getProjectListApi(queryString) {
+    return http.get(`/project/list${queryString}`).then(({data}) => data.data);
 }
 
 export function removeProjectApi(id) {
