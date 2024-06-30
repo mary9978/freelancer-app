@@ -16,6 +16,7 @@ import FreelancerDashboard from "./pages/FreelancerDashboard";
 import Proposals from "./pages/Proposals";
 import SubmittedProjects from "./pages/SubmittedProjects";
 import FreelancerLayout from "./features/Freelancer/FreelancerLayout";
+import ProtectedRoute from "./ui/ProtectedRoute";
 const queryClient = new QueryClient();
 function App() {
   return (
@@ -23,21 +24,35 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Toaster />
         <Routes>
-          <Route path="/owner" element={<OwnerAppLayout />}>
+          <Route
+            path="/owner"
+            element={
+              <ProtectedRoute>
+                <OwnerAppLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<Navigate to={"dashboard"} />} replace />
             <Route path="dashboard" element={<OwnerDashboard />} />
             <Route path="projects" element={<Projects />} />
             <Route path="projects/:id" element={<Project />} />
           </Route>
 
-          <Route path="/freelancer" element={<FreelancerLayout/>}>
+          <Route
+            path="/freelancer"
+            element={
+              <ProtectedRoute>
+                <FreelancerLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<Navigate to={"dashboard"} />} replace />
             <Route path="dashboard" element={<FreelancerDashboard />} />
             <Route path="proposals" element={<Proposals />} />
             <Route path="projects" element={<SubmittedProjects />} />
           </Route>
 
-          <Route path="/" element={<Navigate to={"/auth"}/>} replace/>
+          <Route path="/" element={<Navigate to={"/auth"} />} replace />
           <Route path="/auth" element={<Auth />} />
           <Route exact path="/complete-profile" element={<CompleteProfile />} />
           <Route path="*" element={<NotFound />} />

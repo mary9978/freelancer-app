@@ -6,7 +6,7 @@ function Select({ options, value,onChange }) {
       className="rounded-2xl shadow-xl text-primary-100"
        value={value} onChange={onChange}>
         {options.map((opt) => (
-          <option value={opt.value}>{opt.label}</option>
+          <option key={opt.value} value={opt.value}>{opt.label}</option>
         ))}
       </select>
   );
