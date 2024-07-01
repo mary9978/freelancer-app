@@ -17,6 +17,8 @@ import Proposals from "./pages/Proposals";
 import SubmittedProjects from "./pages/SubmittedProjects";
 import FreelancerLayout from "./features/Freelancer/FreelancerLayout";
 import ProtectedRoute from "./ui/ProtectedRoute";
+import AdminLayout from "./features/admin/AdminLayout";
+import AdminDashboard from "./features/admin/AdminDashboard";
 const queryClient = new QueryClient();
 function App() {
   return (
@@ -24,6 +26,17 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Toaster />
         <Routes>
+
+         <Route
+         path="/admin"
+         element={<ProtectedRoute><AdminLayout/></ProtectedRoute>}
+         >
+           <Route index element={<Navigate to={'dashboard'}/>} replace/>
+           <Route path="dashboard" element={<AdminDashboard/>} />
+           <Route path="users" element={<h2>user list</h2>} />
+         </Route>
+
+
           <Route
             path="/owner"
             element={
