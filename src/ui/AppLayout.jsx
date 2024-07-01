@@ -15,7 +15,7 @@ function AppLayout({children}) {
 
   return (
     <FullScreen className="bg-transparent" handle={handler}>
-      <div className="grid h-screen grid-rows-[auto_1fr] grid-cols-[15rem_1fr]">
+      <div className="grid bg-background-app-rgb h-screen grid-rows-[70px_1fr] grid-cols-1 lg:grid-rows-[auto_1fr] lg:grid-cols-[15rem_1fr]">
         <Header
           onFullScreen={handler.enter}
           collapseMenu={collapseMenu}
