@@ -66,6 +66,12 @@
   .icon{
     @apply w-6 h-6 text-gray-500 hover:cursor-pointer transition-all duration-300;
   }
+  .nav--link{
+    @apply items-center flex justify-between w-full p-4 text-right bg-transparent text-gray-400;
+  }
+  .nav--link.active {
+    @apply text-white bg-gray-500 rounded-md transition duration-300 !important;
+  }
   .textField__input {
     @apply w-full py-3 px-4 rounded-xl text-secondary-900 border border-secondary-100 bg-secondary-500 hover:border-primary-500 focus:border-primary-500 focus:bg-secondary-200 transition-all duration-300 ease-out focus:shadow-lg focus:shadow-primary-200 dark:focus:shadow-secondary-200 text-right;
   }

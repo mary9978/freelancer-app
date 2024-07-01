@@ -7,20 +7,16 @@ import { LuLogOut } from "react-icons/lu";
 import Header from "./Header";
 import SideBar from "./SideBar";
 import { TiThList } from "react-icons/ti";
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 function AppLayout({children}) {
-  const [collapseMenu, setCollapseMenu] = useState(false);
-  const handler = useFullScreenHandle();
-
+  
+  const [name,setName] = useState('maryam');
+  const hanleToggleMenu =()=>{
+    setIsCollapseMenu(!isCollapseMenu)
+  }
   return (
-    <FullScreen className="bg-transparent" handle={handler}>
       <div className="grid bg-background-app-rgb h-screen grid-rows-[70px_1fr] grid-cols-1 lg:grid-rows-[auto_1fr] lg:grid-cols-[15rem_1fr]">
-        <Header
-          onFullScreen={handler.enter}
-          collapseMenu={collapseMenu}
-          onCollapse={() => setCollapseMenu(!collapseMenu)}
-        />
+        <Header/>
         {children}
         <div className="overflow-y-auto">
           <div className="mx-auto max-w-screen-lg mt-4">
@@ -28,7 +24,6 @@ function AppLayout({children}) {
           </div>
         </div>
       </div>
-    </FullScreen>
   );
 }
 

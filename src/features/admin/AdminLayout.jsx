@@ -2,11 +2,13 @@ import React,{useState} from "react";
 import AppLayout from "../../ui/AppLayout";
 import SideBar from "../../ui/SideBar";
 import { FaClipboardList } from "react-icons/fa6";
-function AdminLayout() {
+import { IoHomeSharp } from "react-icons/io5";
+import { useOutletContext } from "react-router-dom";
+function AdminLayout({isCollapseMenu,onCollapseMenu}) {
   const [accordion, setAccordion] = useState([
     {
       key: 1,
-      icon: <FaClipboardList />,
+      icon: <IoHomeSharp />,
       title: " داشبورد",
       link: "dashboard",
       submenu: [],
@@ -34,7 +36,9 @@ function AdminLayout() {
   };
   return (
     <AppLayout>
-      <SideBar toggleAccordion={toggleAccordion} accordion={accordion} />
+      <SideBar 
+      toggleAccordion={toggleAccordion} 
+      accordion={accordion} />
     </AppLayout>
   );
 }
