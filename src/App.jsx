@@ -27,17 +27,22 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Toaster />
         <Routes>
-
-         <Route
-         path="/admin"
-         element={<ProtectedRoute><AdminLayout/></ProtectedRoute>}
-         >
-           <Route index element={<Navigate to={'dashboard'}/>} replace/>
-           <Route path="dashboard" element={<AdminDashboard/>} />
-           <Route path="users" element={<Users/>} />
-         </Route>
-
-
+          <Route path="/" element={<Navigate to={"/auth"} />} replace />
+          <Route path="/auth" element={<Auth />} />
+          <Route exact path="/complete-profile" element={<CompleteProfile />} />
+          <Route path="*" element={<NotFound />} />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <AdminLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<Navigate to={"dashboard"} />} replace />
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="users" element={<Users />} />
+          </Route>
           <Route
             path="/owner"
             element={
@@ -51,7 +56,6 @@ function App() {
             <Route path="projects" element={<Projects />} />
             <Route path="projects/:id" element={<Project />} />
           </Route>
-
           <Route
             path="/freelancer"
             element={
@@ -65,11 +69,6 @@ function App() {
             <Route path="proposals" element={<Proposals />} />
             <Route path="projects" element={<SubmittedProjects />} />
           </Route>
-
-          <Route path="/" element={<Navigate to={"/auth"} />} replace />
-          <Route path="/auth" element={<Auth />} />
-          <Route exact path="/complete-profile" element={<CompleteProfile />} />
-          <Route path="*" element={<NotFound />} />
         </Routes>
       </QueryClientProvider>
     </DarkModeProvider>

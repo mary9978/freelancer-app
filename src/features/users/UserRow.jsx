@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Table from "../../ui/Table";
 import {CiEdit} from 'react-icons/ci'
 import Modal from "../../ui/Modal";
+import ToggleUserStatus from "./ToggleUserStatus";
 const userRole={
     ADMIN:"ادمین",
     OWNER:"کارفرما",
@@ -28,7 +29,7 @@ function UserRow({ user, index }) {
           onClose={()=>setIsEdit(false)}
           title={`ویرایش وضعیت کاربر ${user.name}`}
         >
-            <h2>های</h2>
+            <ToggleUserStatus/>
         </Modal>
         <CiEdit 
         onClick={()=>setIsEdit(true)}
