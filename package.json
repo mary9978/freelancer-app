@@ -14,6 +14,7 @@
     "@hookform/resolvers": "^3.3.4",
     "@tanstack/react-query": "^5.15.5",
     "axios": "^1.6.2",
+    "query-string": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-full-screen": "^1.1.1",
@@ -24,7 +25,7 @@
     "react-multi-date-picker": "^4.5.1",
     "react-otp-input": "^3.1.0",
     "react-query-devtools": "^2.6.3",
-    "react-router-dom": "^6.20.0",
+    "react-router-dom": "^6.24.0",
     "react-tag-input-component": "^2.0.2",
     "tailwind": "^4.0.0",
     "yup": "^1.4.0"

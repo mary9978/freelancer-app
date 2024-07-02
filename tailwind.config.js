@@ -18,7 +18,8 @@ export default {
   theme: {
     fontFamily:{
       "vazir":["vazir",...fontFamily.sans],
-      "PlusJakartaSans":["PlusJakartaSans",...fontFamily.sans]
+      "PlusJakartaSans":["PlusJakartaSans",...fontFamily.sans],
+      "bYekan":["BYekan",...fontFamily.sans]
     },
   
     extend: {
