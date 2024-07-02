@@ -29,8 +29,8 @@ const sortOption =[
 function ProjectsHeader() {
   const { transformedCategories } = useCategories();
   return (
-    <div className="flex items-center justify-between my-4">
-      <h2 className="text-3xl">لیست پروژه ها</h2>
+    <div className="flex items-center justify-between mt-4 mb-8">
+      <h2 className="text-3xl font-bYekan text-secondary-500">لیست پروژه ها</h2>
       <div className="flex gap-x-2">
         <Filter options={statusOption} filterField={'status'}/>
         <DropdownFilter
