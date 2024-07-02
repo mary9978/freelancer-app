@@ -12,7 +12,7 @@ function Header() {
   const { data, isLoading } = UseUser();
   const user = data || {};
   const [isOpenLan, setsOpenLan] = useState(false);
-  const ref = useOutSideClick(()=>setsOpenLan(false));
+  const ref = useOutSideClick(() => setsOpenLan(false));
 
   return (
     <div className="sticky top-0 inset-x-0 flex flex-wrap sm:justify-start sm:flex-nowrap z-[48] w-full bg-transparent text-sm py-4">
@@ -33,26 +33,22 @@ function Header() {
         {/* other info*/}
         <div className="flex gap-x-4 items-center">
           <div className="relative" ref={ref}>
-          <LuLanguages 
-          onClick={()=>setsOpenLan(true)}
-          className="icon" />
-          <DropDown
-          isOpen={isOpenLan}
-          >
-            <ul className="p-2">
-              <li className="p-1 hover:bg-secondary-50 hover:cursor-pointer transition-all duration-300">
-                <p className="font-bYekan text-md text-gray-500">انگلیسی</p>
-              </li>
-              <li className="p-1 hover:bg-secondary-50 hover:cursor-pointer transition-all duration-300">
-                <p className="font-bYekan text-md text-gray-500">عربی</p>
-              </li>
-              <li className="p-1 hover:bg-secondary-50 hover:cursor-pointer transition-all duration-300">
-                <p className="font-bYekan text-md text-gray-500">فارسی</p>
-              </li>
-            </ul>
-          </DropDown>
+            <LuLanguages onClick={() => setsOpenLan(true)} className="icon" />
+            <DropDown isOpen={isOpenLan}>
+              <ul className="p-2">
+                <li className="p-1 hover:bg-secondary-50 hover:cursor-pointer transition-all duration-300">
+                  <p className="font-bYekan text-md text-gray-500">انگلیسی</p>
+                </li>
+                <li className="p-1 hover:bg-secondary-50 hover:cursor-pointer transition-all duration-300">
+                  <p className="font-bYekan text-md text-gray-500">عربی</p>
+                </li>
+                <li className="p-1 hover:bg-secondary-50 hover:cursor-pointer transition-all duration-300">
+                  <p className="font-bYekan text-md text-gray-500">فارسی</p>
+                </li>
+              </ul>
+            </DropDown>
           </div>
-        
+
           <ToggleDark />
           <div className="relative">
             <IoMdNotificationsOutline className="w-7 h-7 icon" />
@@ -65,7 +61,7 @@ function Header() {
               <span className="text-white text-xs">2</span>
             </div>
           </div>
-          <UserInfo/>
+          <UserInfo user={user.user} />
         </div>
       </nav>
     </div>

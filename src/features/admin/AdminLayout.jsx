@@ -4,7 +4,7 @@ import SideBar from "../../ui/SideBar";
 import { FaClipboardList } from "react-icons/fa6";
 import { IoHomeSharp } from "react-icons/io5";
 import { useOutletContext } from "react-router-dom";
-function AdminLayout({isCollapseMenu,onCollapseMenu}) {
+function AdminLayout() {
   const [accordion, setAccordion] = useState([
     {
       key: 1,
@@ -23,6 +23,10 @@ function AdminLayout({isCollapseMenu,onCollapseMenu}) {
       isOpen: false,
     }
   ]);
+  const [isCollapseMenu, setIsCollapseMenu] = useState(false);
+  const hanleToggleMenu =()=>{
+    setIsCollapseMenu(!isCollapseMenu);
+  }
   const toggleAccordion = (accordionkey) => {
     const updatedAccordions = accordion.map((accord) => {
       if (accord.key === accordionkey && accordion.submenu.length !== 0) {
@@ -35,8 +39,10 @@ function AdminLayout({isCollapseMenu,onCollapseMenu}) {
     setAccordion(updatedAccordions);
   };
   return (
-    <AppLayout>
+    <AppLayout isMenuCollapse={isCollapseMenu} >
       <SideBar 
+      isCollapseMenu={isCollapseMenu}
+      hanleToggleMenu={hanleToggleMenu}
       toggleAccordion={toggleAccordion} 
       accordion={accordion} />
     </AppLayout>
