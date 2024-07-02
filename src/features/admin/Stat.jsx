@@ -7,8 +7,8 @@ function Stat({icon,title,value}) {
       {icon}
     </div>
     <div className="flex flex-col">
-      <p className="text-PlusJakartaSans font-semibold text-2xl">{title}</p>
-      <span className="text-PlusJakartaSans font-normal text-2xl">
+      <p className="font-bYekan font-semibold text-2xl">{title}</p>
+      <span className="font-bYekan font-normal text-2xl">
         {value}
       </span>
     </div>
