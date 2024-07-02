@@ -5,7 +5,7 @@ function Proposals() {
   return (
     <div>
       <h2 className="text-2xl font-PlusJakartaSans font-extrabold my-8">
-        لیست پروپوزال های شما</h2>
+        لیست پروپوزال  </h2>
         <ProposalTable/>
     </div>
   )

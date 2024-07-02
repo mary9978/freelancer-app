@@ -7,7 +7,7 @@ function ProposalsRow({proposal,index} ) {
     const statusStyle = [
       {
         label: "رد شده",
-        className: "badge--danger",
+        className: "badge-danger",
       },
       {
         label: "در انتظار تایید",
@@ -15,7 +15,7 @@ function ProposalsRow({proposal,index} ) {
       },
       {
         label: "تایید شده",
-        className: "badge--success",
+        className: "badge-success",
       },
     ];
   return (
