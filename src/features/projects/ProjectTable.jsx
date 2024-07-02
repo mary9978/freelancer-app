@@ -14,13 +14,14 @@ function ProjectTable() {
   if (!projects) return <h2>پروژه ای یافت نشد</h2>;
   return (
     <div className="">
+
       <div className="flex justify-between">
-        <h2 className="text-2xl font-PlusJakartaSans font-extrabold">
+        <h2 className="text-2xl font-bYekan font-extrabold">
           پروژه های شما
         </h2>
         <button 
         onClick={()=> setCreatePro(true)}
-        className="btn btn--primary rounded-lg flex items-center">
+        className="btn btn--primary rounded-lg flex w-1/5 items-center">
           <IoMdAdd />
           ایجاد پروژه جدید
         </button>

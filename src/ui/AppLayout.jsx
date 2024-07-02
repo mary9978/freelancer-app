@@ -8,7 +8,7 @@ function AppLayout({isMenuCollapse,children}) {
         <Header/>
         {children}
         <div className="overflow-y-auto">
-          <div className="mx-auto max-w-screen-lg mt-4">
+          <div className="mx-auto max-w-screen-lg mt-4 px-4 lg:px-0">
             <Outlet  />
           </div>
         </div>
