@@ -3,29 +3,31 @@ import AppLayout from '../../ui/AppLayout'
 import SideBar from '../../ui/SideBar'
 import { TiThList } from "react-icons/ti";
 import { MdDashboard } from "react-icons/md";
-
+import { LuGitPullRequest } from "react-icons/lu";
+import { IoHomeSharp } from "react-icons/io5";
+import { AiOutlineProject } from "react-icons/ai";
 function FreelancerLayout() {
     const [accordion, setAccordion] = useState([
         {
           key: 1,
-          icon: <MdDashboard />,
+          icon: <IoHomeSharp />,
           title: "داشبورد",
-          link: "/freelancer",
+          link: "dashboard",
           submenu: [],
           isOpen: false,
         },
         {
           key: 2,
-          icon: <TiThList />,
-          link: "/freelancer/proposals",
+          icon: <LuGitPullRequest />,
+          link: "proposals",
           title: "درخواست ها",
           submenu: [],
           isOpen: false,
         },
         {
             key: 3,
-            icon: <TiThList />,
-            link: "/freelancer/projects",
+            icon: <AiOutlineProject />,
+            link: "projects",
             title: " پروژه ها",
             submenu: [],
             isOpen: false,

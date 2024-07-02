@@ -2,9 +2,9 @@ function TextField({name,labelText,register,type,errors,required,validationSchem
   return (
     <>
     <label 
-    className={'font-vazir text-md mt-2 font-normal text-right text-secondary-900'}
+    className={'font-bYekan text-md mt-2 font-normal text-right text-secondary-900'}
      htmlFor={name}>
-       {labelText} {required && <span className="text-red-700">*</span>}
+       {labelText} {required && <span className="text-red-700 text-xl">*</span>}
     </label>
       <input
       {...register(name,validationSchema)}
@@ -14,7 +14,7 @@ function TextField({name,labelText,register,type,errors,required,validationSchem
       autoFocus={true}
        className={'textField__input mt-3 border border-gray-300'} type={type}
        />
-      {errors && errors[name] && <span className="text-color-error text-right mt-2 font-vazir text-base">{errors[name]?.message}</span>}
+      {errors && errors[name] && <span className="text-error text-right mt-2 font-bYekan text-base">{errors[name]?.message}</span>}
     </>    
   )
 }

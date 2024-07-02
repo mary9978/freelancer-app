@@ -35,7 +35,7 @@ function ProjectsRow({ projects, index }) {
         <Modal
           isOpen={isOpenModal}
           onClose={() => setIsOpenModal(false)}
-          title={`ارسال درخواست برای پروژه ${projects.title}`}
+          title={`ارسال درخواست برای پروژه " ${projects.title} "`}
         >
           <CreateProposals 
           projectId={projects._id}

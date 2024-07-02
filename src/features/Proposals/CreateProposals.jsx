@@ -2,33 +2,33 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import TextField from "../../ui/TextField";
 import useCreateProposals from "./useCreateProposals";
+import Loading from '../../ui/Loading';
 import { useNavigate } from "react-router-dom";
 
 function CreateProposals({ onClose, projectId }) {
-    const {isCreating,createProposal} = useCreateProposals();
-    const navigate = useNavigate();
+  const { isCreating, createProposal } = useCreateProposals();
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
     handleSubmit,
-    reset
+    reset,
   } = useForm();
-  const submitHandler =(data)=>{
+  const submitHandler = (data) => {
     const newData = {
-        ...data,
-        projectId
-    }
-    createProposal(newData,{
-        onSuccess:()=>{
-            navigate('/auth')
-            reset(),
-            onClose();
-        }
-    })
-  }
+      ...data,
+      projectId,
+    };
+    createProposal(newData, {
+      onSuccess: () => {
+        onClose();
+        reset(); 
+        navigate("/auth");    
+      },
+    });
+  };
   return (
-    <form
-     className="flex flex-col px-4"
+    <form className="flex flex-col px-4"
      onSubmit={handleSubmit(submitHandler)}>
       <TextField
         labelText={"توضیحات"}
@@ -41,7 +41,7 @@ function CreateProposals({ onClose, projectId }) {
           required: {
             value: true,
             message: " توضیحات ضروری است",
-          }
+          },
         }}
       />
       <TextField
@@ -55,7 +55,7 @@ function CreateProposals({ onClose, projectId }) {
           required: {
             value: true,
             message: " قیمت ضروری است",
-          }
+          },
         }}
       />
       <TextField
@@ -69,10 +69,13 @@ function CreateProposals({ onClose, projectId }) {
           required: {
             value: true,
             message: " زمان تحویل پروژه ضروری است",
-          }
+          },
         }}
       />
-      <button type="submit">ارسال درخواست</button>
+      {isCreating ? <Loading />:<button 
+      className="btn--primary mt-6 mb-4"
+      type="submit">ارسال درخواست</button>}
+      
     </form>
   );
 }
