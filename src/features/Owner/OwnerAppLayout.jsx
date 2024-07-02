@@ -1,22 +1,22 @@
 import React,{useState} from "react";
 import AppLayout from "../../ui/AppLayout";
 import SideBar from "../../ui/SideBar";
-import { TiThList } from "react-icons/ti";
-import { MdDashboard } from "react-icons/md";
+import { IoHomeSharp } from "react-icons/io5";
+import { AiOutlineProject } from "react-icons/ai";
 function OwnerAppLayout() {
     const [accordion, setAccordion] = useState([
         {
           key: 1,
-          icon: <MdDashboard />,
+          icon: <IoHomeSharp />,
           title: "داشبورد",
-          link: "/owner",
+          link: "dashboard",
           submenu: [],
           isOpen: false,
         },
         {
           key: 2,
-          icon: <TiThList />,
-          link: "/owner/projects",
+          icon: <AiOutlineProject />,
+          link: "projects",
           title: "لیست پروژه ها",
           submenu: [],
           isOpen: false,
