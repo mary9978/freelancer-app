@@ -48,7 +48,7 @@ function ToggleUserStatus({ userId,onClose }) {
       {isCreating ? (
         <Loading />
       ) : (
-        <button type="submit" className="btn--primary">
+        <button type="submit" className="btn--primary ms-4">
           ثبت تغییرات
         </button>
       )}
