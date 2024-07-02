@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Table from "../../ui/Table";
-import {CiEdit} from 'react-icons/ci'
+import { BsThreeDotsVertical } from "react-icons/bs";
 import Modal from "../../ui/Modal";
 import ToggleUserStatus from "./ToggleUserStatus";
 const userRole={
@@ -18,9 +18,9 @@ function UserRow({ user, index }) {
       <td>{userRole[user.role]}</td>
       <td>
         {user.status == 2 ? (
-          <span className="text-success">کاربر فعال</span>
+          <span className="badge-success text-bYekan">کاربر فعال</span>
         ) : (
-          <span className="text-yellow-700">در انتظار بررسی</span>
+          <span className="badge-danger text-bYekan">در انتظار بررسی</span>
         )}
       </td>
       <td>
@@ -29,9 +29,9 @@ function UserRow({ user, index }) {
           onClose={()=>setIsEdit(false)}
           title={`ویرایش وضعیت کاربر ${user.name}`}
         >
-            <ToggleUserStatus/>
+            <ToggleUserStatus userId={user._id}/>
         </Modal>
-        <CiEdit 
+        <BsThreeDotsVertical 
         onClick={()=>setIsEdit(true)}
         className="w-5 h-5 cursor-pointer"/>
       </td>

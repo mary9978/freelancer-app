@@ -82,7 +82,7 @@
     @apply px-3 py-1 font-bold rounded-3xl transition-all duration-300;
   }
   .btn--primary {
-    @apply  bg-primary-900 text-white hover:bg-primary-800 shadow-lg shadow-primary-300 py-2 font-PlusJakartaSans text-base lg:text-lg dark:shadow-secondary-200;
+    @apply rounded-lg px-2 bg-primary-900 text-white hover:bg-primary-800 shadow-lg shadow-primary-300 py-2 font-bYekan text-base lg:text-lg dark:shadow-secondary-200;
   }
   .btn-danger{
     @apply border-2 border-red-500 hover:text-white shadow-lg hover:bg-red-500;
