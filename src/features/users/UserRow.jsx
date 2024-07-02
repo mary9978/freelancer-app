@@ -29,7 +29,9 @@ function UserRow({ user, index }) {
           onClose={()=>setIsEdit(false)}
           title={`ویرایش وضعیت کاربر ${user.name}`}
         >
-            <ToggleUserStatus userId={user._id}/>
+            <ToggleUserStatus 
+            onClose={()=> setIsEdit(false)}
+            userId={user._id}/>
         </Modal>
         <BsThreeDotsVertical 
         onClick={()=>setIsEdit(true)}

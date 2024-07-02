@@ -91,10 +91,10 @@
     @apply bg-secondary-600 text-secondary-100;
   }
   .badge-success {
-    @apply bg-green-700 text-white p-1 rounded-xl;
+    @apply bg-green-700 text-white p-1.5 rounded-xl ;
   }
   .badge-danger {
-    @apply bg-red-600 text-white p-1 rounded-xl;
+    @apply bg-red-600 text-white p-1.5 rounded-xl;
   }
   .badge--primary {
     @apply bg-primary-900 text-white  p-1 rounded-xl;

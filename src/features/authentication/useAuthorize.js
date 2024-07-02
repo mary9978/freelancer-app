@@ -5,7 +5,11 @@ export default function useAuthorize() {
     const {data,isLoading} = UseUser();
     const {user} = data || {};
     const {pathname} = useLocation();
+ 
 
+    //shows user status
+    let isVerified = false;
+    if(user && user.status == 2) isVerified = true;
 
     let authenticated = false;
     if(user) authenticated = true;
@@ -22,6 +26,6 @@ export default function useAuthorize() {
         authorized = true;
       } 
     }
-    return {authenticated,authorized,isLoading};
+    return {authenticated,authorized,isLoading,isVerified};
   
 }

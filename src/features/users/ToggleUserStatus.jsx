@@ -5,8 +5,8 @@ import { useForm } from "react-hook-form";
 import useToggleUserStatus from "../admin/useToggleUserStatus";
 import Loading from "../../ui/Loading";
 
-function ToggleUserStatus({ userId }) {
-  const { formState: error, register, handleSubmit } = useForm();
+function ToggleUserStatus({ userId,onClose }) {
+  const { register, handleSubmit,reset } = useForm();
   const { isCreating, toggleProjectStatus } = useToggleUserStatus();
   const options = [
     {
@@ -26,7 +26,13 @@ function ToggleUserStatus({ userId }) {
     toggleProjectStatus({
      userId,
      data
-    });
+    },{
+      onSuccess:()=>{
+        onClose();
+        reset();
+      }
+    }
+  );
   };
   return (
     <form
