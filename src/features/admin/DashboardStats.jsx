@@ -6,7 +6,7 @@ import { LuGitPullRequest } from "react-icons/lu";
 
 function DashboardStats({users,projects,proposals}) {
   return (
-    <div div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 xl:grid-cols-3 mt-4">
+    <div div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 xl:grid-cols-3 m-4 gap-y-3">
       <Stat
         title="تعداد کاربران"
         icon={<FaUserTie className="w-10 h-10 text-secondary-500" />}

@@ -20,6 +20,7 @@ import ProtectedRoute from "./ui/ProtectedRoute";
 import AdminLayout from "./features/admin/AdminLayout";
 import AdminDashboard from "./features/admin/AdminDashboard";
 import Users from "./pages/users";
+import NotAccess from "./pages/NotAccess";
 const queryClient = new QueryClient();
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Toaster />
         <Routes>
           <Route path="/" element={<Navigate to={"/auth"} />} replace />
+          <Route path="/not-access" element={<NotAccess/>}/>
           <Route path="/auth" element={<Auth />} />
           <Route exact path="/complete-profile" element={<CompleteProfile />} />
           <Route path="*" element={<NotFound />} />
@@ -42,6 +44,8 @@ function App() {
             <Route index element={<Navigate to={"dashboard"} />} replace />
             <Route path="dashboard" element={<AdminDashboard />} />
             <Route path="users" element={<Users />} />
+            <Route path="proposals" element={<Proposals/>} />
+            <Route path="projects" element={<SubmittedProjects />} />
           </Route>
           <Route
             path="/owner"

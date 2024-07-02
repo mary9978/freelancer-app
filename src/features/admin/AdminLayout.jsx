@@ -3,7 +3,8 @@ import AppLayout from "../../ui/AppLayout";
 import SideBar from "../../ui/SideBar";
 import { FaClipboardList } from "react-icons/fa6";
 import { IoHomeSharp } from "react-icons/io5";
-import { useOutletContext } from "react-router-dom";
+import { AiOutlineProject } from "react-icons/ai";
+import { LuGitPullRequest } from "react-icons/lu";
 function AdminLayout() {
   const [accordion, setAccordion] = useState([
     {
@@ -21,7 +22,23 @@ function AdminLayout() {
       link: "users",
       submenu: [],
       isOpen: false,
-    }
+    },
+    {
+      key: 3,
+      icon: <AiOutlineProject />,
+      title: "لیست پروژه ها",
+      link: "projects",
+      submenu: [],
+      isOpen: false,
+    },
+    {
+      key: 3,
+      icon: <LuGitPullRequest />,
+      title: "لیست درخواست ها",
+      link: "proposals",
+      submenu: [],
+      isOpen: false,
+    },
   ]);
   const [isCollapseMenu, setIsCollapseMenu] = useState(false);
   const hanleToggleMenu =()=>{

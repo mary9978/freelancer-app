@@ -11,16 +11,16 @@ function ProjectTable() {
   const [createPro,setCreatePro] = useState(false);
   const {isLoading,projects} = useOwnerProjects();
    if (isLoading) return <Loading />;
-  if (!projects) return <h2>پروژه ای یافت نشد</h2>;
+  if (!projects) return <h2 className="font-bYekan text-secondary-400">پروژه ای یافت نشد</h2>;
   return (
     <div className="">
-      <div className="flex justify-between">
-        <h2 className="text-2xl font-PlusJakartaSans font-extrabold">
+      <div className="flex justify-between items-center mb-8">
+        <h2 className="text-2xl text-secondary-400 font-bYekan font-extrabold">
           پروژه های شما
         </h2>
         <button 
         onClick={()=> setCreatePro(true)}
-        className="btn btn--primary rounded-lg flex items-center">
+        className="btn--primary text-sm text-center flex items-center">
           <IoMdAdd />
           ایجاد پروژه جدید
         </button>

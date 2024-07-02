@@ -10,7 +10,7 @@ function Filter({options,filterField}) {
   };
   return (
     <div className='flex justify-center items-center gap-x-2'>
-        <span>وضعیت : </span>
+        <span className='text-lg font-bYekan text-secondary-500'>وضعیت : </span>
         <div 
         className='flex items-center border border-secondary-100 bg-secondary-0 gap-x-2 p-2 rounded-lg text-sm'>
             {options.map(({value,label}) => {
