@@ -7,10 +7,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { CiEdit } from "react-icons/ci";
 import { HiMiniArrowSmallRight } from "react-icons/hi2";
 import Loading from "../../ui/Loading";
+import { useDarkMode } from "../../context/DarkModeContext";
 function CheckOTPForm({ phoneNumber, onBack, resendOtpForm, otpResponse }) {
   const [otp, setOtp] = useState("");
   const [time, setTime] = useState(90);
   const navigate = useNavigate();
+  const {isDarkMode} = useDarkMode();
   const { error, data, mutateAsync, isPending } = useMutation({
     mutationFn: checkOTP,
   });
@@ -52,24 +54,18 @@ function CheckOTPForm({ phoneNumber, onBack, resendOtpForm, otpResponse }) {
   }, [time]);
 
   return (
-    <>
-      <section className="bg-secondary-0">
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <div className="flex flex-row-reverse">
-            <h2 className="text-2xl font-PlusJakartaSans font-bold text-secondary-900 ms-8">
-               مای ورک
-            </h2>
-            <div className="w-8 h-8 border flex justify-center items-center bg-secondary-300 border-gray-300 rounded-xl hover:bg-secondary-400 hover:cursor-pointer">
+    <div className="container h-screen overflow-hidden max-w-screen-xl px-8 justify-center items-center flex">
+     {/* <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0"> */}
+     {/* <div className="w-8 h-8 border flex justify-center items-center bg-secondary-300 border-gray-300 rounded-xl hover:bg-secondary-400 hover:cursor-pointer">
               <HiMiniArrowSmallRight
                 onClick={onBack}
                 size={30}
                 className={"text-secondary-500 hover:text-primary-200"}
               />
-            </div>
-          </div>
+            </div> */}
           {otpResponse && (
             <div className="flex flex-row items-center justify-center mt-6">
-              <h6 className="font-vazir text-normal text-secondary-400">
+              <h6 className="font-bYekan text-normal text-secondary-500">
                 کد تایید برای شماره موبایل {phoneNumber} ارسال گردید
               </h6>
               <CiEdit
@@ -80,29 +76,31 @@ function CheckOTPForm({ phoneNumber, onBack, resendOtpForm, otpResponse }) {
             </div>
           )}
 
-          <form className="my-12" onSubmit={checkOTPHandler}>
-            <h2 className="font-vazir font-medium text-secondary-900 my-3">
+          <form className="my-12 " onSubmit={checkOTPHandler}>
+            <h2 className="font-bYekan text-xl font-medium text-secondary-400 ps-6 md:ps-0 my-3">
               کد تایید را وارد کنید
             </h2>
             <OtpInput
+              shouldAutoFocus ={true}
               value={otp}
               onChange={setOtp}
               numInputs={6}
               containerStyle={"flex flex-row-reverse gap-x-2 items-center my-8"}
               inputStyle={{
                 width: "2.5rem",
+                backgroundColor:`${isDarkMode ? '#29334E':'#F7F7F9'}`,
                 padding: "0.5rem 0.2rem",
                 border: "1px solid #ccc",
                 borderRadius: "0.5rem",
               }}
-              renderSeparator={<span>-</span>}
+              renderSeparator={<span className={'text-secondary-400'}>-</span>}
               renderInput={(props) => <input type={"number"} {...props} />}
             />
             <div className="font-vazir text-normal text-secondary-600">
               {time > 0 ? (
                 `ارسال مجدد  کد تا ${time} ثانیه دیگر`
               ) : (
-                <button onClick={resendOtpForm}>دریافت مجدد کد</button>
+                <button className={'font-bYekan text-white cursor-pointer'} onClick={resendOtpForm}>دریافت مجدد کد</button>
               )}
             </div>
             {isPending ? (
@@ -110,16 +108,14 @@ function CheckOTPForm({ phoneNumber, onBack, resendOtpForm, otpResponse }) {
             ) : (
               <button
                 type="submit"
-                id="btn-resend"
-                className="btn btn--primary  w-full my-8 disabled:bg-pink-500"
+                className="btn--primary text-bYekan w-full my-6"
               >
                 ارسال کد تایید{" "}
               </button>
             )}
           </form>
-        </div>
-      </section>
-    </>
+     {/* </div> */}
+    </div>
   );
 }
 

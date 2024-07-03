@@ -110,7 +110,7 @@
 
 
   .link{
-    @apply hidden lg:flex justify-end font-PlusJakartaSans font-normal text-sm text-gray-500;
+    @apply hidden lg:flex justify-end font-bYekan font-normal text-sm text-gray-500;
   }
   .btn{
     @apply w-full my-4 py-2 bg-blue-600 rounded-md text-white shadow-xl hover:bg-white hover:text-blue-500 hover:ring-1 hover:ring-blue-500 cursor-pointer transition-all duration-300 font-PlusJakartaSans font-bold;

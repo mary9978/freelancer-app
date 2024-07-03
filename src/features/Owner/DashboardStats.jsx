@@ -5,7 +5,7 @@ import { HiOutlineCollection } from "react-icons/hi";
 import Stat from "./stat";
 function DashboardStats({ projects }) {
   const projectLength = projects.length;
-  const numOfAcceptedProject = projects.map((pr) => pr.status === 2).length;
+  const numOfAcceptedProject = projects.map((pr) => pr.status == 2).length;
   const numOfProjectProposal = projects.reduce((acc, curr) => {
     return acc + curr.proposals.length;
   }, 0);
