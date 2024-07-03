@@ -63,7 +63,7 @@ function CreateProjectForm({onClose,projectToEdit={}}) {
   };
   return (
     <form
-      className="flex flex-col py-4 space-y-4"
+      className="flex flex-col py-2 space-y-2"
       onSubmit={handleSubmit(onSubmit)}
     >
       <TextField
@@ -78,7 +78,7 @@ function CreateProjectForm({onClose,projectToEdit={}}) {
             message: "عنوان پروژه ضروری می باشد",
           },
           minLength: {
-            value: 10,
+            value: 6,
             message: "عنوان پروژه حداقل 10 کاراکتر باشد",
           },
         }}
@@ -96,7 +96,7 @@ function CreateProjectForm({onClose,projectToEdit={}}) {
             message: "توضیحات پروژه ضروری می باشد",
           },
           maxLength: {
-            value: 60,
+            value: 120,
             message: "عنوان پروژه حداکثر 60 کاراکتر باشد",
           },
         }}
@@ -115,7 +115,7 @@ function CreateProjectForm({onClose,projectToEdit={}}) {
             message: "بودجه پروژه ضروری می باشد",
           },
         }}
-        type={"text"}
+        type={"number"}
       />
 
       <RHFSelect
@@ -124,10 +124,18 @@ function CreateProjectForm({onClose,projectToEdit={}}) {
         name={"category"}
         register={register}
       />
+      <label className="text-secondary-900 font-bYekan" htmlFor="tags">تگ ها</label>
+      <TagsInput 
+      id={'tags'}
+       value={selectedTags}
+        onChange={setTags}
+         name="tags" />
 
-      <TagsInput value={selectedTags} onChange={setTags} name="tags" />
 
-      <MultiDatePicker date={date} setDate={setDate} />
+     
+      <MultiDatePicker 
+      date={date} 
+      setDate={setDate} />
 
       <button
         type="submit"

@@ -6,7 +6,7 @@ function MultiDatePicker({date,setDate}) {
 
   return (
     <div>
-        <label htmlFor="date-picker">زمان ارسال پروژه</label>
+        <label className='font-bYekan text-secondary-900' htmlFor="date-picker">زمان ارسال پروژه</label>
         <DatePicker
           calendarPosition='bottom-cenetr'
           value={date}
