@@ -36,6 +36,10 @@ function CheckOTPForm({ phoneNumber, onBack, resendOtpForm, otpResponse }) {
           navigate('/freelancer');
           break;
         }
+        case "ADMIN":{
+          navigate('/admin');
+          break;
+        }
         default: return;
       }
     } catch (error) {

@@ -5,8 +5,39 @@ import { getOTP } from "../../services/authServices";
 import { toast } from "react-hot-toast";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
+import UseUser from './UseUser';
+import { useNavigate } from "react-router-dom";
 function AuthContainer() {
   const [step, setStep] = useState(1);
+  const navigate = useNavigate();
+  const {data,isLoading} = UseUser();
+  const {user} = data || {};
+  console.log(user)
+  // useEffect(() => {
+  //   if(user){
+  //     switch (user.role) {
+  //       case "FREELANCER":{
+  //         toast.success('قبلا وارد حساب کاربر خود شده اید');
+  //          navigate('/freelancer',{replace:true});
+  //         break;
+  //       }
+  //       case "OWNER":{
+  //         toast.success('قبلا وارد حساب کاربر خود شده اید');
+  //         navigate('/owner',{replace:true});
+  //         break;
+  //       }
+  //       case "ADMIN":{
+  //         toast.success('قبلا وارد حساب کاربر خود شده اید');
+  //         navigate('/admin',{replace:true});
+  //         break;
+  //       }
+      
+  //       default:
+  //         break;
+  //     }
+  //   }
+  // }, [user,navigate])
+  
   const {
     register,
     handleSubmit,
