@@ -63,6 +63,9 @@
   }
 }
 @layer components {
+  .container-style2{
+    @apply mx-12 !important;
+  }
   .card--stat{
     @apply bg-secondary-400 cursor-pointer shadow-2xl ease-in-out duration-200 hover:scale-y-105 rounded-xl p-4 flex gap-x-4;
   }
@@ -110,7 +113,7 @@
 
 
   .link{
-    @apply hidden lg:flex justify-end font-PlusJakartaSans font-normal text-sm text-gray-500;
+    @apply hidden lg:flex justify-end font-bYekan font-normal text-sm text-gray-500;
   }
   .btn{
     @apply w-full my-4 py-2 bg-blue-600 rounded-md text-white shadow-xl hover:bg-white hover:text-blue-500 hover:ring-1 hover:ring-blue-500 cursor-pointer transition-all duration-300 font-PlusJakartaSans font-bold;
@@ -132,6 +135,36 @@
 body {
   font-family: "BYekan";
   background: rgb(var(--background-app-rgb));
+}
+/* multi date picker style style */
+.rmdp-container{
+  width: 100% !important;
+  margin: 0.5rem 0;
+}
+.rmdp-input{
+  height: 55px !important;
+  width: 100%;
+  padding: 0.5rem 1rem !important;
+  background-color: rgb(var(--color-secondary-400));
+}
+/* react tags input style */
+.rti--container {
+  background-color: rgb(var(--color-secondary-400)) !important;
+  --rti-radius: 0.375rem;
+  --rti-s: 0.5rem;
+  --rti-tag: #edf2f7;
+  --rti-tag-remove: #e53e3e;
+  border: none;
+}
+.rti--container .rti--input {
+  background-color: rgb(var(--color-secondary-300));
+  color: rgb(var(--color-secondary-800));
+  padding: 0.3rem 1rem;
+  border-radius: 0.5rem;
+}
+.rti--tag {
+  background-color: rgb(var(--color-secondary-400));
+  color: rgb(var(--color-secondary-100));
 }
 label {
   display: block;

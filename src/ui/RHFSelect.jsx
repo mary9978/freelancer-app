@@ -2,10 +2,10 @@ import React from "react";
 
 function RHFSelect({label,name,register,options}) {
   return (
-    <div className="px-4">
-      <label htmlFor={name}>{label}</label>
+    <div className="">
+      <label className="text-secondary-900 font-bYekan" htmlFor={name}>{label}</label>
       <select
-      className="w-full rounded-xl bg-secondary-200 font-bYekan"
+      className="w-full rounded-xl bg-secondary-400 text-secondary-500 font-bYekan"
       id={name}
        {...register(name)}>
         {

@@ -15,7 +15,7 @@ function SendOTPForm({ onSendOtpForm, isSending, register, errors }) {
           </div>
           <div className="flex flex-col justify-center">
             <div className="flex p-12 flex-col text-secondary-900  text-center">
-              <p className="font-vazir font-bold text-lg lg:text-3xl">
+              <p className="font-bYekan font-bold text-lg lg:text-3xl">
                 خوش آمدید
               </p>
 
@@ -46,7 +46,7 @@ function SendOTPForm({ onSendOtpForm, isSending, register, errors }) {
                     type="submit"
                     onClick={onSendOtpForm}
                     className={
-                      "btn gap-x-2 btn--primary w-full mt-8 flex justify-center items-center"
+                      "gap-x-2 btn--primary w-full mt-4 text-bYekan"
                     }
                   >
                     ورود

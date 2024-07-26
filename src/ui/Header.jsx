@@ -7,6 +7,7 @@ import { useState } from "react";
 import DropDown from "./DropDown";
 import useOutSideClick from "../hooks/useOutSideClick";
 import UserInfo from "./UserInfo";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 function Header() {
   const { data, isLoading } = UseUser();
@@ -20,6 +21,9 @@ function Header() {
         className={`flex basis-full items-center justify-between w-full mx-auto px-4 sm:px-6 
         ${isLoading ? "blur-sm opacity-50" : ""}`}
       >
+        <RxHamburgerMenu 
+        
+        className="w-7 h-7 me-4 cursor-pointer text-secondary-500 md:hidden"/>
         {/* search */}
         <div className="flex justify-center items-center w-1/2">
           <MdOutlineSearch className="w-5 h-5 text-gray-400" />
@@ -61,7 +65,7 @@ function Header() {
               <span className="text-white text-xs">2</span>
             </div>
           </div>
-          <UserInfo user={user.user} />
+          <UserInfo user={user} />
         </div>
       </nav>
     </div>
