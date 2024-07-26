@@ -8,7 +8,6 @@ import convertToPersianNumber from "../../utils/convertPrice";
 function Stats({proposals}) {
  
    const numOfAcceptedProposals = proposals.filter(p => p.status == 2) || [];
-   console.log(numOfAcceptedProposals);
    const totalPrice = numOfAcceptedProposals.reduce((acc,curr)=>{
     return acc + curr.price;
    },0);

@@ -23,16 +23,17 @@ function UserInfo({ user }) {
         onClick={() => setOpenUserInfo(true)}
         src={userAvatar}
         className="w-8 h-8 rounded-full icon"
-        alt={`${user.name} avatar`}
+        // alt={`${user.name} avatar`}
       />
       <DropDown isOpen={isOpenUserInfo}>
         <ul className="p-2">
           <li className="flex items-center gap-x-2 my-2">
             <img src={userAvatar} className="w-10 h-10 rounded-full" />
             <div>
-              <p className="text-xs font-bYekan font-semibold">{user.name}</p>
+            <p className="text-xs font-bYekan font-semibold">مریم رضایی</p>
+              {/* <p className="text-xs font-bYekan font-semibold">{user.name}</p> */}
               <span className="text-xs text-green-500 font-bYekan font-semibold">
-                {userRole[user.role]}
+                {/* {userRole[user.role]} */}
               </span>
             </div>
           </li>

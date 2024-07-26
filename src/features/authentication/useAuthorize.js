@@ -4,27 +4,30 @@ import UseUser from "./UseUser";
 export default function useAuthorize() {
     const {data,isLoading} = UseUser();
     const {user} = data || {};
+
+
     const {pathname} = useLocation();
  
-
+     console.log(user);
     //shows user status
     let isVerified = false;
     if(user && user.status == 2) isVerified = true;
 
+
     let authenticated = false;
     if(user) authenticated = true;
 
-    let authorized = false;
+    let authorized = true;
     const ROLES = {
         admin:"ADMIN",
         freelancer:"FREELANCER",
         owner:"OWNER"
     }
-    const recievedRole = pathname.split('/').at(1);
-    if(Object.keys(ROLES).includes(recievedRole)){
-      if(user && user.role == ROLES[recievedRole]){
-        authorized = true;
-      } 
+   
+    const desiredRole = pathname.split("/")[1];
+
+    if (Object.keys(ROLES).includes(desiredRole)) {
+      if (user != null && user.role == ROLES[desiredRole]) authorized = true;
     }
     return {authenticated,authorized,isLoading,isVerified};
   

@@ -63,6 +63,9 @@
   }
 }
 @layer components {
+  .container-style2{
+    @apply mx-12 !important;
+  }
   .card--stat{
     @apply bg-secondary-400 cursor-pointer shadow-2xl ease-in-out duration-200 hover:scale-y-105 rounded-xl p-4 flex gap-x-4;
   }

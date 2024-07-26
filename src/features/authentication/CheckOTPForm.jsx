@@ -29,14 +29,17 @@ function CheckOTPForm({ phoneNumber, onBack, resendOtpForm, otpResponse }) {
       }
       switch(user.role){
         case "OWNER":{
+           alert('owner');
           navigate('/owner');
           break;
         }
         case "FREELANCER":{
+           alert('Freelancer');
           navigate('/freelancer');
           break;
         }
         case "ADMIN":{
+           alert('ADMIN');
           navigate('/admin');
           break;
         }
@@ -58,18 +61,10 @@ function CheckOTPForm({ phoneNumber, onBack, resendOtpForm, otpResponse }) {
   }, [time]);
 
   return (
-    <div className="container h-screen overflow-hidden max-w-screen-xl px-8 justify-center items-center flex">
-     {/* <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0"> */}
-     {/* <div className="w-8 h-8 border flex justify-center items-center bg-secondary-300 border-gray-300 rounded-xl hover:bg-secondary-400 hover:cursor-pointer">
-              <HiMiniArrowSmallRight
-                onClick={onBack}
-                size={30}
-                className={"text-secondary-500 hover:text-primary-200"}
-              />
-            </div> */}
+    <div className="container h-screen sm:max-w-sm overflow-hidden md:max-w-screen-lg px-8 justify-center items-center flex">
           {otpResponse && (
             <div className="flex flex-row items-center justify-center mt-6">
-              <h6 className="font-bYekan text-normal text-secondary-500">
+              <h6 className="font-bYekan text-normal text-center md:text-right text-secondary-500">
                 کد تایید برای شماره موبایل {phoneNumber} ارسال گردید
               </h6>
               <CiEdit
@@ -80,8 +75,15 @@ function CheckOTPForm({ phoneNumber, onBack, resendOtpForm, otpResponse }) {
             </div>
           )}
 
-          <form className="my-12 " onSubmit={checkOTPHandler}>
-            <h2 className="font-bYekan text-xl font-medium text-secondary-400 ps-6 md:ps-0 my-3">
+          <form className="container-style2" onSubmit={checkOTPHandler}>
+               <div className="w-8 h-8 border flex justify-center items-center bg-secondary-300 border-gray-300 rounded-xl hover:bg-secondary-400 hover:cursor-pointer">
+              <HiMiniArrowSmallRight
+                onClick={onBack}
+                size={30}
+                className={"text-secondary-500 hover:text-primary-200"}
+              />
+            </div>
+            <h2 className="font-bYekan text-center md:text-right text-xl font-medium text-secondary-400 ps-6 md:ps-0 my-3">
               کد تایید را وارد کنید
             </h2>
             <OtpInput
@@ -89,14 +91,22 @@ function CheckOTPForm({ phoneNumber, onBack, resendOtpForm, otpResponse }) {
               value={otp}
               onChange={setOtp}
               numInputs={6}
-              containerStyle={"flex flex-row-reverse gap-x-2 items-center my-8"}
+              containerStyle="flex flex-row-reverse gap-x-2  justify-center"
               inputStyle={{
                 width: "2.5rem",
-                backgroundColor:`${isDarkMode ? '#29334E':'#F7F7F9'}`,
                 padding: "0.5rem 0.2rem",
-                border: "1px solid #ccc",
+                border: "1px solid rgb(var(--color-primary-900))",
                 borderRadius: "0.5rem",
+                backgroundColor: "transparent",
+                color: "rgb(var(--color-secondary-700))",
               }}
+              // inputStyle={{
+              //   width: "2.5rem",
+              //   backgroundColor:`${isDarkMode ? '#29334E':'#F7F7F9'}`,
+              //   padding: "0.5rem 0.2rem",
+              //   border: "1px solid #ccc",
+              //   borderRadius: "0.5rem",
+              // }}
               renderSeparator={<span className={'text-secondary-400'}>-</span>}
               renderInput={(props) => <input type={"number"} {...props} />}
             />

@@ -5,11 +5,10 @@ import { useMutation } from "@tanstack/react-query";
 import { completeProfile } from "../../services/authServices";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 function CompleteProfileForm() {
   const {register,handleSubmit,formState:{errors},getValues , watch} = useForm();
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [role, setRole] = useState("");
+  const navigate = useNavigate()
   const { data, error, isPending,mutateAsync } = useMutation({
     mutationFn: completeProfile,
   });
@@ -38,7 +37,6 @@ function CompleteProfileForm() {
     }
   };
 
-  console.log('errors',errors);
 
   
   return (

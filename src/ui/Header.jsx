@@ -65,7 +65,7 @@ function Header() {
               <span className="text-white text-xs">2</span>
             </div>
           </div>
-          <UserInfo user={user.user} />
+          <UserInfo user={user} />
         </div>
       </nav>
     </div>

@@ -12,31 +12,33 @@ function AuthContainer() {
   const navigate = useNavigate();
   const {data,isLoading} = UseUser();
   const {user} = data || {};
-  console.log(user)
-  // useEffect(() => {
-  //   if(user){
-  //     switch (user.role) {
-  //       case "FREELANCER":{
-  //         toast.success('قبلا وارد حساب کاربر خود شده اید');
-  //          navigate('/freelancer',{replace:true});
-  //         break;
-  //       }
-  //       case "OWNER":{
-  //         toast.success('قبلا وارد حساب کاربر خود شده اید');
-  //         navigate('/owner',{replace:true});
-  //         break;
-  //       }
-  //       case "ADMIN":{
-  //         toast.success('قبلا وارد حساب کاربر خود شده اید');
-  //         navigate('/admin',{replace:true});
-  //         break;
-  //       }
+  useEffect(() => {
+    if(user != null){
+      switch (user.role) {
+        case "FREELANCER":{
+          alert('freelancer');
+          toast.success('قبلا وارد حساب کاربر خود شده اید');
+           navigate('/freelancer',{replace:true});
+          break;
+        }
+        case "OWNER":{
+          alert('owner');
+          toast.success('قبلا وارد حساب کاربر خود شده اید');
+          navigate('/owner',{replace:true});
+          break;
+        }
+        case "ADMIN":{
+          alert('admin')
+          toast.success('قبلا وارد حساب کاربر خود شده اید');
+          navigate('/admin',{replace:true});
+          break;
+        }
       
-  //       default:
-  //         break;
-  //     }
-  //   }
-  // }, [user,navigate])
+        default:
+          break;
+      }
+    }
+  }, [user,navigate])
   
   const {
     register,
@@ -85,7 +87,7 @@ function AuthContainer() {
         return null;
     }
   };
-  return <>{renderStep()}</>;
+  return <div className="">{renderStep()}</div>;
 }
 
 export default AuthContainer;
